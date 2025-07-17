@@ -12,15 +12,16 @@ A Python web service to handle webhooks for starting and stopping Hyper-V virtua
 
 ## Setup
 
-1. Install Python 3.8 or higher
-2. Install dependencies:
+1. Install UV: `pip install uv`
+1. Install Python 3.8 or higher: `uv python install`
+1. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   uv pip install -r requirements.txt
    ```
-3. Copy `.env.example` to `.env` and configure your settings
-4. Run the service:
+1. Copy `.env.example` to `.env` and configure your settings
+1. Run the service:
    ```bash
-   python app.py
+   uv run app.py
    ```
 
 1. Install Powershell: `winget install --id Microsoft.PowerShell --source winget`
@@ -32,6 +33,8 @@ A Python web service to handle webhooks for starting and stopping Hyper-V virtua
 - `POST /vm/stop` - Stop a virtual machine
 - `POST /vm/restart` - Restart a virtual machine
 - `GET /vm/status` - Get VM status
+
+Example: `http://172.17.144.1:5000/vm/start?vm_name=node2`
 
 ### Webhooks
 - `POST /webhook/vm` - Handle VM webhook events
